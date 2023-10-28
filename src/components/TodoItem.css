@@ -1,0 +1,28 @@
+li{
+    background-color: gray;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 50px;
+    margin: 10px;
+}
+
+.Icon{
+    font-weight: bolder;
+}
+
+.Icon-check:hover{
+    color: rgb(139, 197, 139);
+}
+
+.Icon-delete:hover{
+    color: rgb(216, 138, 138);
+}
+
+.Icon-check--active{
+    color: rgb(31, 236, 99);
+}
+
+.complete-text{
+    text-decoration: line-through;
+}
