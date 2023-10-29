@@ -29,14 +29,14 @@ function App() {
   const searchesTodos = todos.filter(todo=>
     todo.text.toLowerCase()
     .includes(searchValue.toLowerCase()))
-  
-  const searchText = searchValue
 
   const completeTodo = (index)=>{
     const newTodos = [...todos];
     newTodos[index].complete = !newTodos[index].complete;
     setTodos(newTodos);
   }
+
+  const searchText = searchValue;
 
   const deleteTodo = (index)=>{
     const newTodos = [...todos]
@@ -60,6 +60,7 @@ function App() {
       <TodoUl>
         {searchesTodos.map((todo,index)=>(
           <TodoItem  
+            sText = {searchText}
             text = {todo.text}
             complete = {todo.complete}
             onComplete = {()=>completeTodo(index)}

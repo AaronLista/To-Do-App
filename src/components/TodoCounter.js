@@ -1,7 +1,14 @@
 import './TodoCounter.css'
 
 function TodoCounter({tasks}){
-    return (<h1>se han completado {tasks.filter(todo=>todo.complete).length} de {tasks.length}</h1>)
+    return (
+    
+    tasks.filter(todo=>todo.complete).length === tasks.length?
+    
+    <h1>se han completado todas las tareas</h1>:
+    <h1>se han completado {tasks.filter(todo=>todo.complete).length} de {tasks.length}</h1>
+    
+    )
 }
 
 export {TodoCounter};

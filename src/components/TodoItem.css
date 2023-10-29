@@ -26,3 +26,8 @@ li{
 .complete-text{
     text-decoration: line-through;
 }
+
+strong{
+    background-color: yellow;
+    border-radius: 5px;
+}
