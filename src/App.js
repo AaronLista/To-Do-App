@@ -2,6 +2,7 @@ import { TodoCounter } from './components/TodoCounter';
 import { TodoSearch } from './components/TodoSearch';
 import { TodoUl } from './components/TodoList';
 import { TodoItem } from './components/TodoItem';
+import { Formulario } from './components/formulario';
 import { CreateTodoButton } from './components/TodoCreateButton';
 import React from 'react';
 import './App.css';
@@ -39,8 +40,15 @@ function App() {
   const searchText = searchValue;
 
   const deleteTodo = (index)=>{
+    const newTodos = [...todos];
+    newTodos.splice(index,1)
+    setTodos(newTodos)
+  }
+
+  const createTodo = (info)=>{
     const newTodos = [...todos]
-    newTodos.pop(newTodos[index]);
+    const newTodo = {text:info, complete:false}
+    newTodos.push(newTodo);
     setTodos(newTodos)
   }
 
@@ -48,29 +56,33 @@ function App() {
 
   return (
     <div className='App'>
-      <TodoCounter 
-        tasks={todos}
-      />
-
-      <TodoSearch
-        searchValue={searchValue}
-        setSearchValue = {setSearchValue}
-      />
-
-      <TodoUl>
-        {searchesTodos.map((todo,index)=>(
-          <TodoItem  
-            sText = {searchText}
-            text = {todo.text}
-            complete = {todo.complete}
-            onComplete = {()=>completeTodo(index)}
-            onDelete = {()=>deleteTodo(index)}
-            key={index}
+      {/* <div className='left'>
+          <Formulario
+            onCreate={createTodo}
           />
-        ))}
-      </TodoUl>
+      </div> */}
+      <div className='rigth'>
+        <TodoCounter 
+          tasks={todos}
+        />
+        <TodoSearch
+          searchValue={searchValue}
+          setSearchValue = {setSearchValue}
+        />
 
-      <CreateTodoButton/>
+        <TodoUl>
+          {searchesTodos.map((todo,index)=>(
+            <TodoItem  
+              sText = {searchText}
+              text = {todo.text}
+              complete = {todo.complete}
+              onComplete = {()=>completeTodo(index)}
+              onDelete = {()=>deleteTodo(index)}
+              key={index}
+            />
+          ))}
+        </TodoUl>
+      </div>
     </div>
   );
 }
