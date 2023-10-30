@@ -19,7 +19,7 @@ function TodoItem({sText, text, complete, onComplete, onDelete}){
 
         <div className='delete' onClick={onDelete}>
           <span className='Icon'>
-            <Icon type='del' color="gray"/>
+            <Icon type='del' color="#ff4f4f"/>
           </span>
         </div>
 

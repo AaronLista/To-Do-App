@@ -3,11 +3,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ececec;
 }
 .rigth{
-  width: 80%;
+  width: 60%;
   height: 100vh;
-
 }
 .left{
   width: 45%;

@@ -9,14 +9,17 @@ import './App.css';
 
 let tasks = [
   {
+    id: 0,
     text:"hola pa ti mis bolas",
     complete: true
   },
   {
+    id: 2,
     text:"Pene",
     complete: false
   },
   {
+    id: 3,
     text:"ta bien",
     complete: false
   }
@@ -31,16 +34,18 @@ function App() {
     todo.text.toLowerCase()
     .includes(searchValue.toLowerCase()))
 
-  const completeTodo = (index)=>{
+  const completeTodo = (id)=>{
     const newTodos = [...todos];
-    newTodos[index].complete = !newTodos[index].complete;
+    newTodos.find((todo)=>todo.id === id).complete = !newTodos.find((todo)=>todo.id === id).complete
     setTodos(newTodos);
   }
 
   const searchText = searchValue;
 
-  const deleteTodo = (index)=>{
+  const deleteTodo = (id)=>{
     const newTodos = [...todos];
+    const todo = newTodos.find((todo)=>todo.id === id);
+    const index = newTodos.indexOf(todo)
     newTodos.splice(index,1)
     setTodos(newTodos)
   }
@@ -76,8 +81,8 @@ function App() {
               sText = {searchText}
               text = {todo.text}
               complete = {todo.complete}
-              onComplete = {()=>completeTodo(index)}
-              onDelete = {()=>deleteTodo(index)}
+              onComplete = {()=>completeTodo(todo.id)}
+              onDelete = {()=>deleteTodo(todo.id)}
               key={index}
             />
           ))}

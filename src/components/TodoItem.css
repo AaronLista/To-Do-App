@@ -2,11 +2,15 @@ div{
     position: relative;
 }
 li{
-    background-color: rgb(202, 202, 202);
+    background-color: #ececec;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px;
+    margin: 50px;
+    border-radius: 50px;
+    border: 2px solid #ececec;
+    box-shadow: -11px -11px 14px rgb(255,255,255,0.5),
+                 12px  12px 14px rgb(70,70,70,0.12);
 }
 
 .circle{
@@ -15,8 +19,6 @@ li{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: rgb(180, 180, 180);
-    transition: background-color ease-in-out 0.2s;
 }
 
 .fill{
@@ -26,7 +28,7 @@ li{
     z-index: 1;
     clip-path: circle(0% at 50% 50%);
     background-color: rgb(34, 236, 95);
-    transition: all ease-in-out 0.7s;
+    transition: all ease-in-out 0.5s;
 }
 
 .delete{
