@@ -1,34 +1,12 @@
-import { TodoCounter } from './components/TodoCounter/TodoCounter';
-import { TodoSearch } from './components/TodoSearch/TodoSearch';
-import { TodoUl } from './components/TodoList/TodoList';
-import { TodoItem } from './components/TodoItem/TodoItem';
 import { useLocalStorage } from './customsHooks/useLocalStorage'
 import React from 'react';
-import './App.css';
-
-
+import { AppUI } from './AppUI';
 
 function App() {
 
-  let defaultTodos = [
-    {
-      id:1,
-      text: 'tarea 1',
-      complete: false
-    },
-    {
-      id:2,
-      text: 'tarea 2',
-      complete: false
-    },
-    {
-      id:3,
-      text: 'tarea 3',
-      complete: false
-    }
-  ]
+  let defaultTodos = []
 
-  const [todos,setTodos] = useLocalStorage('tareas',defaultTodos)
+  const {item:todos,saveItem:setTodos,loading,err} = useLocalStorage('tareas',[defaultTodos])
   const [searchValue, setSearchValue] = React.useState('');
 
   const searchesTodos = todos.filter(todo=>
@@ -51,40 +29,19 @@ function App() {
     setTodos(newTodos)
   }
 
-  // const createTodo = (info)=>{
-  //   const newTodos = [...todos]
-  //   const newTodo = {text:info, complete:false}
-  //   newTodos.push(newTodo);
-  //   setTodos(newTodos)
-  // }
-
-
 
   return (
-    <div className='App'>
-      <div className='rigth'>
-        <TodoCounter 
-          tasks={todos}
-        />
-        <TodoSearch
-          searchValue={searchValue}
-          setSearchValue = {setSearchValue}
-        />
-
-        <TodoUl>
-          {searchesTodos.map((todo,index)=>(
-            <TodoItem  
-              sText = {searchText}
-              text = {todo.text}
-              complete = {todo.complete}
-              onComplete = {()=>completeTodo(todo.id)}
-              onDelete = {()=>deleteTodo(todo.id)}
-              key={index}
-            />
-          ))}
-        </TodoUl>
-      </div>
-    </div>
+    <AppUI
+        todos =  {todos}
+        searchValue =  {searchValue}
+        setSearchValue = { setSearchValue }
+        searchesTodos = { searchesTodos }
+        searchText = { searchText }
+        completeTodo = { completeTodo }
+        deleteTodo = {deleteTodo}
+        loading={loading}
+        err={err}
+    />
   );
 }
 
