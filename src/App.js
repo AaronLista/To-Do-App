@@ -7,28 +7,52 @@ import { CreateTodoButton } from './components/TodoCreateButton';
 import React from 'react';
 import './App.css';
 
-let tasks = [
-  {
-    id: 0,
-    text:"hola pa ti mis bolas",
-    complete: true
-  },
-  {
-    id: 2,
-    text:"Pene",
-    complete: false
-  },
-  {
-    id: 3,
-    text:"ta bien",
-    complete: false
+
+function useLocalStorage(nombre, defaultasks){
+  let tareas = []
+
+  if(localStorage.getItem(nombre)){
+    console.log('hay tareas')
+    tareas = JSON.parse(localStorage.getItem(nombre))
+  } else {
+    console.log('no hay tareas');
+    tareas = defaultasks
+    localStorage.setItem(nombre,JSON.stringify(defaultasks));
   }
-]
+
+  const [item, setItem] = React.useState(tareas);
+
+  function saveItem(newItem){
+    setItem(newItem)
+    localStorage.setItem(nombre,JSON.stringify(newItem))
+  }
+
+  return [item,saveItem]
+
+}
 
 
 function App() {
+  let defaultTodos = [
+    {
+      id:1,
+      text: 'tarea 1',
+      complete: false
+    },
+    {
+      id:2,
+      text: 'tarea 2',
+      complete: false
+    },
+    {
+      id:3,
+      text: 'tarea 3',
+      complete: false
+    }
+  ]
+
+  const [todos,setTodos] = useLocalStorage('tareas',defaultTodos)
   const [searchValue, setSearchValue] = React.useState('');
-  const [todos, setTodos] = React.useState(tasks);
 
   const searchesTodos = todos.filter(todo=>
     todo.text.toLowerCase()
@@ -36,8 +60,8 @@ function App() {
 
   const completeTodo = (id)=>{
     const newTodos = [...todos];
-    newTodos.find((todo)=>todo.id === id).complete = !newTodos.find((todo)=>todo.id === id).complete
-    setTodos(newTodos);
+    newTodos.find((todo)=>todo.id === id).complete = !newTodos.find((todo)=>todo.id === id).complete;
+    setTodos(newTodos)
   }
 
   const searchText = searchValue;
