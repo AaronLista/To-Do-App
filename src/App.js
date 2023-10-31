@@ -1,9 +1,7 @@
-import { TodoCounter } from './components/TodoCounter';
-import { TodoSearch } from './components/TodoSearch';
-import { TodoUl } from './components/TodoList';
-import { TodoItem } from './components/TodoItem';
-import { Formulario } from './components/formulario';
-import { CreateTodoButton } from './components/TodoCreateButton';
+import { TodoCounter } from './components/TodoCounter/TodoCounter';
+import { TodoSearch } from './components/TodoSearch/TodoSearch';
+import { TodoUl } from './components/TodoList/TodoList';
+import { TodoItem } from './components/TodoItem/TodoItem';
 import React from 'react';
 import './App.css';
 
@@ -85,11 +83,6 @@ function App() {
 
   return (
     <div className='App'>
-      {/* <div className='left'>
-          <Formulario
-            onCreate={createTodo}
-          />
-      </div> */}
       <div className='rigth'>
         <TodoCounter 
           tasks={todos}
