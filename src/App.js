@@ -2,35 +2,14 @@ import { TodoCounter } from './components/TodoCounter/TodoCounter';
 import { TodoSearch } from './components/TodoSearch/TodoSearch';
 import { TodoUl } from './components/TodoList/TodoList';
 import { TodoItem } from './components/TodoItem/TodoItem';
+import { useLocalStorage } from './customsHooks/useLocalStorage'
 import React from 'react';
 import './App.css';
 
 
-function useLocalStorage(nombre, defaultasks){
-  let tareas = []
-
-  if(localStorage.getItem(nombre)){
-    console.log('hay tareas')
-    tareas = JSON.parse(localStorage.getItem(nombre))
-  } else {
-    console.log('no hay tareas');
-    tareas = defaultasks
-    localStorage.setItem(nombre,JSON.stringify(defaultasks));
-  }
-
-  const [item, setItem] = React.useState(tareas);
-
-  function saveItem(newItem){
-    setItem(newItem)
-    localStorage.setItem(nombre,JSON.stringify(newItem))
-  }
-
-  return [item,saveItem]
-
-}
-
 
 function App() {
+
   let defaultTodos = [
     {
       id:1,
@@ -72,12 +51,12 @@ function App() {
     setTodos(newTodos)
   }
 
-  const createTodo = (info)=>{
-    const newTodos = [...todos]
-    const newTodo = {text:info, complete:false}
-    newTodos.push(newTodo);
-    setTodos(newTodos)
-  }
+  // const createTodo = (info)=>{
+  //   const newTodos = [...todos]
+  //   const newTodo = {text:info, complete:false}
+  //   newTodos.push(newTodo);
+  //   setTodos(newTodos)
+  // }
 
 
 

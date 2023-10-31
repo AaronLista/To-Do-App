@@ -8,7 +8,7 @@ function TodoItem({sText, text, complete, onComplete, onDelete}){
 
         <div className='circle' onClick={onComplete}>
           <span className='Icon'>
-            <Icon type='check' color={complete? '#07c03e':'gray'}/>
+            <Icon type='check' color={complete? 'white':'gray'}/>
           </span>
           <div className='circle fill' style={complete? {clipPath:'circle(100% at 50% 50%)'}:{}}>
           </div>
