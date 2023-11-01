@@ -26,7 +26,7 @@ function useLocalStorage(nombre, defaultasks){
           setErr(true)
         }
 
-      },0)
+      },5000)
     },[])
     
     function saveItem(newItem){

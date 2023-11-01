@@ -10,14 +10,13 @@ function AppUI(){
     return(
         <div className='App'>
         <div className='rigth'>
-          {/* <TodoCounter/>
-          <TodoSearch/> */}
+
+        <TodoCounter/>
+        <TodoSearch/>
+         
   
         <TodoContext.Consumer>
             {({
-                todos,
-                searchValue,
-                setSearchValue,
                 searchesTodos,
                 searchText,
                 completeTodo,
