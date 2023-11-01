@@ -8,22 +8,25 @@ function useLocalStorage(nombre, defaultasks){
 
   const [err, setErr] = React.useState(false)
 
-  var tareas = []
-
     React.useEffect(()=>{
+      console.log('hola')
+      var tareas = []
       setTimeout(()=>{
-        
-        if(JSON.parse(localStorage.getItem(nombre)).length > 0){
-          tareas = JSON.parse(localStorage.getItem(nombre))
-          setLoading(false);
-          setItem(tareas)
-        } else {
-          localStorage.setItem(nombre,JSON.stringify(defaultasks));
-          setItem(defaultasks)
-          setLoading(false);
+        try {
+          if(JSON.parse(localStorage.getItem(nombre)).length > 0){
+            tareas = JSON.parse(localStorage.getItem(nombre));
+            setLoading(false);
+            setItem(tareas)
+          } else {
+            localStorage.setItem(nombre,JSON.stringify(defaultasks));
+            setItem(defaultasks)
+            setLoading(false);
+          }
+        } catch (error) {
+          setErr(true)
         }
 
-      },5000)
+      },0)
     },[])
     
     function saveItem(newItem){
