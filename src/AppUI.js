@@ -30,6 +30,7 @@ function AppUI({
 
             {loading? <p>Cargando...</p>:''}
             {err? <p>hubo un error</p>:''}
+            {(!loading && !searchesTodos.length > 0)? <p>No hay tareas aun...</p>:''}
 
             {searchesTodos.map((todo,index)=>(
               <TodoItem  

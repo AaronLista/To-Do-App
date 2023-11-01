@@ -1,6 +1,6 @@
 import React from "react";
 
-function useLocalStorage(nombre, [defaultasks]){
+function useLocalStorage(nombre, defaultasks){
 
   const [item, setItem] = React.useState(defaultasks);
 
@@ -11,17 +11,19 @@ function useLocalStorage(nombre, [defaultasks]){
   var tareas = []
 
     React.useEffect(()=>{
+      setTimeout(()=>{
+        
+        if(JSON.parse(localStorage.getItem(nombre)).length > 0){
+          tareas = JSON.parse(localStorage.getItem(nombre))
+          setLoading(false);
+          setItem(tareas)
+        } else {
+          localStorage.setItem(nombre,JSON.stringify(defaultasks));
+          setItem(defaultasks)
+          setLoading(false);
+        }
 
-      if(localStorage.getItem(nombre)){
-        tareas = JSON.parse(localStorage.getItem(nombre))
-        setItem(tareas)
-      } else {
-        tareas = defaultasks
-        localStorage.setItem(nombre,JSON.stringify(tareas));
-      }
-
-      setLoading(false);
-      setItem(tareas)
+      },1000)
     },[])
     
     function saveItem(newItem){

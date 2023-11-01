@@ -4,9 +4,26 @@ import { AppUI } from './AppUI';
 
 function App() {
 
-  let defaultTodos = []
+  let defaultTodos = [
+    {
+      id:1,
+      text:"hola mundo",
+      complete: false
+    },
+    {
+      id:2,
+      text:"Esto es lo maximo",
+      complete: false
+    },
+    {
+      id:3,
+      text:"Como estan?",
+      complete: false
+    }
 
-  const {item:todos,saveItem:setTodos,loading,err} = useLocalStorage('tareas',[defaultTodos])
+  ]
+
+  const {item:todos,saveItem:setTodos,loading,err} = useLocalStorage('tareas',defaultTodos)
   const [searchValue, setSearchValue] = React.useState('');
 
   const searchesTodos = todos.filter(todo=>
