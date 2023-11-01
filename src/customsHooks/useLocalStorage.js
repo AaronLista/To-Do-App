@@ -23,7 +23,7 @@ function useLocalStorage(nombre, defaultasks){
           setLoading(false);
         }
 
-      },1000)
+      },5000)
     },[])
     
     function saveItem(newItem){

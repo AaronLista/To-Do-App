@@ -2,6 +2,7 @@ import { TodoCounter } from './components/TodoCounter/TodoCounter';
 import { TodoSearch } from './components/TodoSearch/TodoSearch';
 import { TodoUl } from './components/TodoList/TodoList';
 import { TodoItem } from './components/TodoItem/TodoItem';
+import { Loading } from './components/Loading/Loading';
 import './App.css';
 
 function AppUI({
@@ -28,7 +29,7 @@ function AppUI({
   
           <TodoUl>
 
-            {loading? <p>Cargando...</p>:''}
+            {loading? <Loading/>:''}
             {err? <p>hubo un error</p>:''}
             {(!loading && !searchesTodos.length > 0)? <p>No hay tareas aun...</p>:''}
 

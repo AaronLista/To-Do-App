@@ -1,0 +1,20 @@
+.Loading{
+    color: #ececec;
+    height: 57px;
+    background: linear-gradient(90deg, #ececec, #cecece);
+    background-size: 200% 200%;
+    border-color: none;
+    animation: skeleton-loading 3s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+      background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

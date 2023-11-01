@@ -7,11 +7,11 @@
 }
 .rigth{
   width: 60%;
-  height: 100vh;
+  min-height: 100vh;
 }
 .left{
   width: 45%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
