@@ -9,6 +9,7 @@ function TodoProvider({children}) {
 
     const {item:todos,saveItem:setTodos,loading,err} = useLocalStorage('tareas',defaultTodos)
     const [searchValue, setSearchValue] = React.useState('');
+    const [toggleModal, setToggleModal] = React.useState(false)
     
     const searchesTodos = todos.filter(todo=>
       todo.text.toLowerCase()
@@ -42,7 +43,9 @@ function TodoProvider({children}) {
                 completeTodo,
                 deleteTodo,
                 loading,
-                err
+                err,
+                toggleModal,
+                setToggleModal
             }
         }>
             {children}

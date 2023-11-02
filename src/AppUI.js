@@ -4,7 +4,10 @@ import { TodoUl } from './components/TodoList/TodoList';
 import { TodoItem } from './components/TodoItem/TodoItem';
 import { Loading } from './components/Loading/Loading';
 import { TodoContext } from './components/Context/TodoContext';
+import { Modal } from './components/Modal/Modal'
 import './App.css';
+import { DisplayModalBtn } from './components/DisplayModalBtn/DisplayModalBtn';
+import { TodoForm } from './components/TodoForm/TodoForm';
 
 function AppUI(){
     return(
@@ -22,8 +25,11 @@ function AppUI(){
                 completeTodo,
                 deleteTodo,
                 loading,
-                err
+                err,
+                toggleModal,
+                setToggleModal
             })=>(
+              <>
                 <TodoUl>
                     {loading? <Loading/>:''}
                     {err? <p>hubo un error</p>:''}
@@ -40,11 +46,21 @@ function AppUI(){
                       />
                     ))}
                 </TodoUl>
+
+                {toggleModal? (
+                  <Modal>
+                    <TodoForm></TodoForm>
+                  </Modal>
+                ):(<></>)}
+
+              </>
             )}
         </TodoContext.Consumer>
 
+        <DisplayModalBtn></DisplayModalBtn>
+
         </div>
-      </div>
+      </div>      
     )
 }
 

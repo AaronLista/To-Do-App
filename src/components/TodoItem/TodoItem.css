@@ -6,7 +6,7 @@ li{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 50px;
+    margin: 50px 20px;
     border-radius: 50px;
     border: 2px solid #ececec;
     box-shadow: -11px -11px 14px rgb(255,255,255,0.5),

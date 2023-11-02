@@ -9,6 +9,7 @@ function TodoSearch(){
     return(<
         input type="text" 
         placeholder="Find a task" 
+        className="search"
         value={searchValue}
         onChange={(event)=>{
             setSearchValue(event.target.value)

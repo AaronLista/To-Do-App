@@ -1,0 +1,30 @@
+.displayBtn{
+    position:fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 150px;
+    border: solid 1px #ececec;
+    border-radius: 50px;
+    background-color: #22ec5f;
+    color: white;
+    font-size: 20px ;
+    font-weight: bolder;
+    padding: 10px;
+    box-shadow: 12px  12px 14px rgb(70,70,70,0.12);
+    cursor: pointer;
+    z-index: 20;
+}
+
+.displayBtn:hover{
+    background-color: #18b948;
+}
+
+@media (max-width: 500px) {
+    .displayBtn{
+        bottom: 20px;
+        right: 20px;
+        width: 80px;
+        height: 80px;
+        font-size: 50px;
+    }
+}
