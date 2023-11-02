@@ -49,7 +49,7 @@ function AppUI(){
 
                 {toggleModal? (
                   <Modal>
-                    <TodoForm></TodoForm>
+                    <TodoForm/>
                   </Modal>
                 ):(<></>)}
 

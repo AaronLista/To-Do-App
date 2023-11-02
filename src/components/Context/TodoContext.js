@@ -14,6 +14,8 @@ function TodoProvider({children}) {
     const searchesTodos = todos.filter(todo=>
       todo.text.toLowerCase()
       .includes(searchValue.toLowerCase()))
+
+    const searchText = searchValue;
   
     const completeTodo = (id)=>{
       const newTodos = [...todos];
@@ -21,14 +23,36 @@ function TodoProvider({children}) {
       setTodos(newTodos)
     }
   
-    const searchText = searchValue;
-  
     const deleteTodo = (id)=>{
       const newTodos = [...todos];
       const todo = newTodos.find((todo)=>todo.id === id);
       const index = newTodos.indexOf(todo)
       newTodos.splice(index,1)
       setTodos(newTodos)
+    }
+
+    const createTodo = (todoText)=>{
+      if(todos.length > 0){
+        const newTodos = [...todos];
+        let lastTodo = newTodos[newTodos.length-1];
+        const newId = lastTodo.id+1;
+        const newTodo = {
+          id:newId,
+          text:todoText,
+          complete:false
+        }
+        newTodos.push(newTodo);
+        setTodos(newTodos)
+      } else {
+        const newTodos = [...todos];
+        const newTodo = {
+          id:1,
+          text:todoText,
+          complete:false
+        }
+        newTodos.push(newTodo);
+        setTodos(newTodos)
+      }
     }
   
   
@@ -42,6 +66,7 @@ function TodoProvider({children}) {
                 searchText,
                 completeTodo,
                 deleteTodo,
+                createTodo,
                 loading,
                 err,
                 toggleModal,
