@@ -12,7 +12,7 @@ function useLocalStorage(nombre, defaultasks){
       var tareas = []
       setTimeout(()=>{
         try {
-          if(JSON.parse(localStorage.getItem(nombre)).length > 0){
+          if(JSON.parse(localStorage.getItem(nombre))){
             tareas = JSON.parse(localStorage.getItem(nombre));
             setLoading(false);
             setItem(tareas)
@@ -24,6 +24,7 @@ function useLocalStorage(nombre, defaultasks){
         } catch (error) {
           setLoading(false)
           setErr(true)
+          console.error(error)
         }
 
       },1000)
