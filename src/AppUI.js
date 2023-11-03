@@ -34,7 +34,7 @@ function AppUI(){
                 <TodoUl>
                     {loading? <Loading/>:''}
                     {err? <p>hubo un error</p>:''}
-                    {(!loading && !searchesTodos.length > 0)? <p>No hay tareas aun...</p>:''}
+                    {(!loading && !searchesTodos.length > 0 && !err)? <p>No hay tareas aun...</p>:''}
             
                     {searchesTodos.map((todo,index)=>(
                       <TodoItem  
