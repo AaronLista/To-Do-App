@@ -10,17 +10,17 @@ function TodoCounter(){
 
         loading? 
 
-        <h1>Cargando tareas...</h1>
+        <h2>Cargando tareas...</h2>
 
         :
 
         tasks.filter(todo=>todo.complete).length === tasks.length?
     
-        <h1>Se han completado todas las tareas</h1>
+        <h2>Se han completado todas las tareas</h2>
 
         :
 
-        <h1>se han completado {tasks.filter(todo=>todo.complete).length} de {tasks.length} tareas</h1>
+        <h2>se han completado {tasks.filter(todo=>todo.complete).length} de {tasks.length} tareas</h2>
     
     )
 }

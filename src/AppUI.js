@@ -14,6 +14,8 @@ function AppUI(){
         <div className='App'>
         <div className='rigth'>
 
+        <h1>To do List</h1>
+
         <TodoCounter/>
         <TodoSearch/>
          
@@ -26,8 +28,7 @@ function AppUI(){
                 deleteTodo,
                 loading,
                 err,
-                toggleModal,
-                setToggleModal
+                toggleModal
             })=>(
               <>
                 <TodoUl>
