@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/https//AaronLista.github.io/To-Do-App/static/css/main.b5ac60c9.css",
-    "main.js": "/https//AaronLista.github.io/To-Do-App/static/js/main.afa7464c.js",
-    "index.html": "/https//AaronLista.github.io/To-Do-App/index.html",
-    "static/media/delete.svg": "/https//AaronLista.github.io/To-Do-App/static/media/delete.67697f56fd2f149bc9515a879062ad5c.svg",
-    "static/media/check.svg": "/https//AaronLista.github.io/To-Do-App/static/media/check.23109d14544b9bb9b3d5d4e65ea13701.svg",
-    "main.b5ac60c9.css.map": "/https//AaronLista.github.io/To-Do-App/static/css/main.b5ac60c9.css.map",
-    "main.afa7464c.js.map": "/https//AaronLista.github.io/To-Do-App/static/js/main.afa7464c.js.map"
+    "main.css": "/To-Do-App/static/css/main.b5ac60c9.css",
+    "main.js": "/To-Do-App/static/js/main.7fcc6bee.js",
+    "index.html": "/To-Do-App/index.html",
+    "static/media/delete.svg": "/To-Do-App/static/media/delete.67697f56fd2f149bc9515a879062ad5c.svg",
+    "static/media/check.svg": "/To-Do-App/static/media/check.23109d14544b9bb9b3d5d4e65ea13701.svg",
+    "main.b5ac60c9.css.map": "/To-Do-App/static/css/main.b5ac60c9.css.map",
+    "main.7fcc6bee.js.map": "/To-Do-App/static/js/main.7fcc6bee.js.map"
   },
   "entrypoints": [
     "static/css/main.b5ac60c9.css",
-    "static/js/main.afa7464c.js"
+    "static/js/main.7fcc6bee.js"
   ]
 }
