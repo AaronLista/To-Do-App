@@ -9,7 +9,6 @@ function useLocalStorage(nombre, defaultasks){
   const [err, setErr] = React.useState(false)
 
     React.useEffect(()=>{
-      console.log('hola')
       var tareas = []
       setTimeout(()=>{
         try {
@@ -26,8 +25,8 @@ function useLocalStorage(nombre, defaultasks){
           setErr(true)
         }
 
-      },5000)
-    },[])
+      },1000)
+    },[nombre,defaultasks])
     
     function saveItem(newItem){
       setItem(newItem)

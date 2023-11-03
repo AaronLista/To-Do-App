@@ -4,35 +4,37 @@ import './TodoForm.css'
 
 
 function TodoForm(){
-    const {toggleModal, setToggleModal,createTodo} = React.useContext(TodoContext)
-    const [todoText, setTodoText] = React.useState('')
+    const {setToggleModal,createTodo} = React.useContext(TodoContext);
+    const [text, setText] = React.useState('')
+
+    function submitTask(event){
+        event.preventDefault();
+        createTodo(text);
+        setToggleModal(false);
+    }
+
+    
+    function cancel(event){
+        event.preventDefault();
+        setToggleModal(false)
+    }
 
     return(
         <div className="formContainer">
             <h2>Crear Nueva Tarea</h2>
-            <form>
+            <form onSubmit={(e)=>{submitTask(e)}}>
                 <div className="inputContainer">
                     <label>Nueva Tarea:</label><br/>
-                    <input type='text' placeholder='Tarea' value={todoText} onChange={(e)=>{setTodoText(e.target.value)}}/>
+                    <input type='text' placeholder='Tarea' value={text} onChange={(e)=>{setText(e.target.value)}}/>
                 </div>
                 <div className='inputContainer btnContainer'> 
-                    <input type='submit' value='Guardar' className='Btn submit' onClick={(e)=>addTask(e,setToggleModal,toggleModal,createTodo,todoText)}/>
-                    <input type='button' value='Cancelar' className='Btn cancel' onClick={(e)=>cancel(e,setToggleModal,toggleModal)}/>
+                    <input type='button' value='Cancelar' className='Btn cancel' onClick={(e)=>cancel(e)}/>
+                    <input type='submit' value='Guardar' className='Btn submit' />
                 </div>
             </form>
         </div>
     )
 }
 
-function cancel(event, setToggleModal, toggleModal){
-    event.preventDefault();
-    setToggleModal(!toggleModal)
-}
-
-function addTask(event, setToggleModal, toggleModal, createTodo, text){
-    event.preventDefault();
-    createTodo(text);
-    setToggleModal(!toggleModal);
-}
 
 export {TodoForm}
