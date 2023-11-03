@@ -22,6 +22,7 @@ function useLocalStorage(nombre, defaultasks){
             setLoading(false);
           }
         } catch (error) {
+          setLoading(false)
           setErr(true)
         }
 
